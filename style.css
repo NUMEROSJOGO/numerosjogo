@@ -1,14 +1,14 @@
 /* Estilos Generales y Variables */
 :root {
-    --bg-dark: #000000; /* Negro puro para la base */
-    --bg-card: #111111; /* Negro muy oscuro para tarjetas */
-    --primary: #d4af37; /* Dorado */
-    --primary-glow: rgba(212, 175, 55, 0.5); /* Resplandor dorado */
-    --accent: #cd7f32; /* Bronce */
-    --accent-glow: rgba(205, 127, 50, 0.4); /* Resplandor bronce */
+    --bg-dark: #000000;
+    --bg-card: #111111;
+    --primary: #d4af37;
+    --primary-glow: rgba(212, 175, 55, 0.5);
+    --accent: #cd7f32;
+    --accent-glow: rgba(205, 127, 50, 0.4);
     --text-main: #ffffff;
     --text-muted: #aaaaaa;
-    --text-gold: #f5c71a; /* Texto dorado más brillante */
+    --text-gold: #f5c71a;
     --transition: all 0.3s ease;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Montserrat', sans-serif;
@@ -160,7 +160,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--text-main);
     letter-spacing: -1px;
 }
@@ -183,10 +183,10 @@ body {
     gap: 3rem;
 }
 
-/* Sistema de Giro 3D (180 grados) sin JavaScript */
+/* Sistema de Giro 3D con CSS Grid (Solución definitiva para móviles) */
 .vip-flip-wrapper {
     perspective: 1200px;
-    min-height: 410px;
+    width: 100%;
 }
 
 .flip-toggle {
@@ -194,10 +194,10 @@ body {
 }
 
 .vip-flip-inner {
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     width: 100%;
-    height: 100%;
-    min-height: 410px;
     transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
     transform-style: preserve-3d;
 }
@@ -208,10 +208,8 @@ body {
 
 .vip-front,
 .vip-back {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1;
     width: 100%;
-    height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
@@ -220,34 +218,14 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Área táctil de toda la tarjeta */
-.flip-area {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    cursor: pointer;
-}
-
-.flip-hint {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--primary);
-    background: rgba(212, 175, 55, 0.12);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    margin-bottom: 1.2rem;
-    align-self: center;
-    letter-spacing: 0.5px;
-}
-
+/* Estilo de la Tarjeta */
 .vip-card {
     background: var(--bg-card);
     border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 20px;
     overflow: hidden;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .vip-flip-wrapper:hover .vip-card {
@@ -264,29 +242,57 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    pointer-events: none;
 }
 
-.plan-header h3 {
-    font-size: 1rem;
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.plan-type {
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 0.3rem;
     letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Botón interactivo para girar la tarjeta */
+.btn-flip {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--primary);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+    display: inline-block;
+}
+
+.btn-flip:hover {
+    background: var(--primary);
+    color: #000;
 }
 
 .duration {
     font-size: 1.6rem;
     font-weight: 800;
     color: var(--text-main);
+    margin: 0.5rem 0;
 }
 
 .price-container {
-    margin: 1.5rem 0;
+    margin: 1rem 0 1.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 115px;
+    min-height: 100px;
 }
 
 .old-price {
@@ -314,7 +320,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Específico para el plan destacado (15 días) */
+/* Plan Destacado (15 días) */
 .featured {
     border: 1px solid var(--primary);
 }
@@ -327,7 +333,7 @@ body {
     background-color: var(--primary);
 }
 
-/* Específico para el plan bronce (7 días) */
+/* Plan Bronce (7 días) */
 .bronze {
     border-color: rgba(205, 127, 50, 0.25);
 }
@@ -336,7 +342,7 @@ body {
     color: var(--accent);
 }
 
-/* Efectos de resplandor para VIP */
+/* Efectos de Resplandor */
 .card-glow {
     position: absolute;
     top: -50%;
@@ -362,11 +368,10 @@ body {
     opacity: 0.6;
 }
 
-/* Botón de compra (WhatsApp) por encima del área de giro */
+/* Botón de Compra WhatsApp (Interactivo y accesible) */
 .btn-purchase {
     position: relative;
-    z-index: 4;
-    pointer-events: auto;
+    z-index: 5;
     display: inline-block;
     background-color: rgba(212, 175, 55, 0.15);
     color: var(--text-main);
@@ -430,7 +435,6 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    pointer-events: auto;
 }
 
 .card-icon {
@@ -449,7 +453,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Efecto de resplandor para servicios */
 .service-glow {
     position: absolute;
     top: -50%;
@@ -543,7 +546,7 @@ footer {
     color: var(--primary);
 }
 
-/* Diseño adaptativo para móviles */
+/* Responsive para móviles */
 @media (max-width: 968px) {
     .header-container {
         flex-direction: column;
