@@ -14,7 +14,7 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="https://i.ibb.co/374t4L4/image-1.png" alt="Logo Jogo" class="logo-img">
+                <img src="logo.jpg" alt="Logo Jogo" class="logo-img">
                 <span class="brand-name">NUMEROS JOGO</span>
             </div>
             <nav class="main-nav">
@@ -33,67 +33,141 @@
         <div class="hero-content">
             <span class="badge">NUMEROS JOGO</span>
             <h1>Asesor y analista de loterías</h1>
-            
-             
             <p class="tagline">Probabilidades para distintos sorteos de la región</p>
-           <p class="tagline">Tica , Nica , Honduras , Dominicanas , Salvadoreña y americanas ! </p>
-                        <div class="card-icon"></div>
-
+            <p class="tagline">Tica , Nica , Honduras , Dominicanas , Salvadoreña y americanas ! </p>
+            <div class="card-icon"></div>
         </div>
     </section>
 
-    <!-- VIP Section (Membresías) -->
+    <!-- VIP Section (Membresías con giro 180° CRC / USD) -->
     <section id="vip" class="vip-section">
         <div class="container">
             <h2 class="section-title">MEMBRESÍAS VIP</h2>
+            <p class="vip-subtitle">Toca cualquier tarjeta para ver el precio en dólares (USD)</p>
             
             <div class="vip-grid">
                 <!-- Plan 7 Días -->
-                <div class="vip-card bronze">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="plan-header">
-                            <h3>MEMBRESÍA</h3>
-                            <span class="duration">7 DÍAS</span>
+                <div class="vip-flip-wrapper">
+                    <input type="checkbox" id="flip-7" class="flip-toggle">
+                    <div class="vip-flip-inner">
+                        <!-- Frente: Colones -->
+                        <div class="vip-card bronze vip-front">
+                            <label for="flip-7" class="flip-area" title="Toca para ver en dólares"></label>
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para USD ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">7 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old-price">₡7.000 CRC</span>
+                                    <span class="new-price">₡5.000 CRC</span>
+                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <div class="price-container">
-                            <span class="old-price">₡7.000 CRC</span>
-                            <span class="new-price">₡5.000 CRC</span>
-                            <span class="promo-badge">¡PROMOCIÓN!</span>
+                        <!-- Reverso: Dólares -->
+                        <div class="vip-card bronze vip-back">
+                            <label for="flip-7" class="flip-area" title="Toca para ver en colones"></label>
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para CRC ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">7 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old-price">$22 USD</span>
+                                    <span class="new-price">$17 USD</span>
+                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                     </div>
                 </div>
 
                 <!-- Plan 15 Días (Destacado) -->
-                <div class="vip-card gold featured">
-                    <div class="card-glow featured-glow"></div>
-                    <div class="card-content">
-                        <div class="plan-header">
-                            <h3>MEMBRESÍA</h3>
-                            <span class="duration">15 DÍAS</span>
+                <div class="vip-flip-wrapper">
+                    <input type="checkbox" id="flip-15" class="flip-toggle">
+                    <div class="vip-flip-inner">
+                        <!-- Frente: Colones -->
+                        <div class="vip-card gold featured vip-front">
+                            <label for="flip-15" class="flip-area" title="Toca para ver en dólares"></label>
+                            <div class="card-glow featured-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para USD ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">15 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="new-price">₡12.500 CRC</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase featured-btn">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <div class="price-container">
-                            <span class="new-price">₡12.500 CRC</span>
+                        <!-- Reverso: Dólares -->
+                        <div class="vip-card gold featured vip-back">
+                            <label for="flip-15" class="flip-area" title="Toca para ver en colones"></label>
+                            <div class="card-glow featured-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para CRC ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">15 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="new-price">$34 USD</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase featured-btn">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase featured-btn">¡Comprar con WhatsApp!</a>
                     </div>
                 </div>
 
                 <!-- Plan 31 Días -->
-                <div class="vip-card gold">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="plan-header">
-                            <h3>MEMBRESÍA</h3>
-                            <span class="duration">31 DÍAS</span>
+                <div class="vip-flip-wrapper">
+                    <input type="checkbox" id="flip-31" class="flip-toggle">
+                    <div class="vip-flip-inner">
+                        <!-- Frente: Colones -->
+                        <div class="vip-card gold vip-front">
+                            <label for="flip-31" class="flip-area" title="Toca para ver en dólares"></label>
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para USD ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">31 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old-price">₡20.000 CRC</span>
+                                    <span class="new-price">₡10.000 CRC</span>
+                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <div class="price-container">
-                            <span class="old-price">₡20.000 CRC</span>
-                            <span class="new-price">₡10.000 CRC</span>
-                            <span class="promo-badge">¡PROMOCIÓN!</span>
+                        <!-- Reverso: Dólares -->
+                        <div class="vip-card gold vip-back">
+                            <label for="flip-31" class="flip-area" title="Toca para ver en colones"></label>
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <span class="flip-hint">Tocar para CRC ↻</span>
+                                <div class="plan-header">
+                                    <h3>MEMBRESÍA</h3>
+                                    <span class="duration">31 DÍAS</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old-price">$50 USD</span>
+                                    <span class="new-price">$27 USD</span>
+                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                </div>
+                                <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
                         </div>
-                        <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                     </div>
                 </div>
             </div>
@@ -137,7 +211,7 @@
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-logo-area">
-                <img src="https://i.ibb.co/374t4L4/image-1.png" alt="Logo Jogo" class="footer-logo-img">
+                <img src="logo.jpg" alt="Logo Jogo" class="footer-logo-img">
                 <span class="footer-brand-name">NUMEROS JOGO</span>
                 <p class="footer-phrase">Asesor y analista de loterías</p>
             </div>
