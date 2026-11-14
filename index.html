@@ -4,50 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NUMEROS JOGO | Asesor y Analista de Loterías</title>
-    
-    <!-- 👇 Agrégalo justo aquí abajo 👇 -->
+    <!-- Favicon para la pestaña del navegador -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header/Navegación -->
+    <!-- Chispas doradas flotantes globales en todo el fondo de la página -->
+    <div class="gold-embers" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Header/Navegación con Gato Negro 2D animado -->
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
                 <img src="logo.jpg" alt="Logo Jogo" class="logo-img">
                 <span class="brand-name">NUMEROS JOGO</span>
             </div>
-            <nav class="main-nav">
+           <nav class="main-nav">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#numeros-dia">Números</a></li>
+                    <li><a href="#cruceta-dia">Cruceta</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#vip">VIP</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
+
+        <!-- Gato Negro 2D caminando en el borde de la barra superior -->
+        <div class="black-cat-track" aria-hidden="true">
+            <div class="black-cat-walker">
+                <svg class="cat-svg" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cola ondulante -->
+                    <path class="cat-tail" d="M13 27 C4 25, 2 15, 9 10" fill="none" stroke="#080808" stroke-width="3.2" stroke-linecap="round"/>
+                    <path class="cat-tail" d="M13 27 C4 25, 2 15, 9 10" fill="none" stroke="#e5b84b" stroke-width="0.7" stroke-linecap="round" opacity="0.6"/>
+                    
+                    <!-- Pata trasera posterior -->
+                    <path class="cat-leg-back-1" d="M19 29 L16 41" stroke="#080808" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Pata trasera delantera -->
+                    <path class="cat-leg-back-2" d="M23 29 L25 41" stroke="#080808" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- Cuerpo estilizado -->
+                    <ellipse cx="28" cy="26" rx="12.5" ry="7.2" fill="#080808" stroke="#e5b84b" stroke-width="0.85"/>
+                    
+                    <!-- Pata delantera posterior -->
+                    <path class="cat-leg-front-1" d="M35 29 L33 41" stroke="#080808" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Pata delantera delantera -->
+                    <path class="cat-leg-front-2" d="M39 29 L41 41" stroke="#080808" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- Cabeza -->
+                    <circle cx="44" cy="17" r="7.8" fill="#080808" stroke="#e5b84b" stroke-width="0.85"/>
+                    <!-- Orejas puntiagudas -->
+                    <polygon points="38,12 40,3 43,10" fill="#080808" stroke="#e5b84b" stroke-width="0.75"/>
+                    <polygon points="45,10 49,3 50,12" fill="#080808" stroke="#e5b84b" stroke-width="0.75"/>
+                    <!-- Ojos dorados brillantes -->
+                    <ellipse cx="42.5" cy="16.5" rx="1.2" ry="1.7" fill="#ffd700"/>
+                    <ellipse cx="47" cy="16.5" rx="1.2" ry="1.7" fill="#ffd700"/>
+                </svg>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <span class="badge">NUMEROS JOGO</span>
+            <span class="badge bf-badge">★ BLACK FRIDAY • NOVIEMBRE ★</span>
             <h1>Asesor y analista de loterías</h1>
             <p class="tagline">Probabilidades para distintos sorteos de la región</p>
             <p class="tagline">Tica , Nica , Honduras , Dominicanas , Salvadoreña y americanas ! </p>
-            <div class="card-icon"></div>
         </div>
     </section>
 
-    <!-- VIP Section (Membresías con giro 180° CRC / USD optimizado) -->
+    <!-- SECCIÓN: CRUCETA DEL DÍA (con fecha y con X animada) -->
+    <section id="cruceta-dia" class="daily-numbers-section">
+        <div class="container">
+            <h2 class="section-title">CRUCETA DEL DÍA</h2>
+            <!-- Cambia aquí la fecha manualmente cada día -->
+            <div class="daily-date-wrapper">
+                <span class="daily-date-badge">📅 14 DE NOVIEMBRE, 2026</span>
+            </div>
+
+            <!-- Contenedor de la Cruceta -->
+            <div class="cruceta-container">
+                <!-- X Roja central con movimiento -->
+                <div class="cruceta-x">
+                    <div class="x-bar x-bar-1"></div>
+                    <div class="x-bar x-bar-2"></div>
+                </div>
+
+                <!-- Números alrededor -->
+                <div class="cruceta-num num-top">5</div>
+                <div class="cruceta-num num-left">7</div>
+                <div class="cruceta-num num-right">8</div>
+                <div class="cruceta-num num-bottom">5</div>
+
+                <!-- Números en las esquinas -->
+                <div class="cruceta-num num-corner-tl">2</div>
+                <div class="cruceta-num num-corner-tr">3</div>
+                <div class="cruceta-num num-corner-bl">2</div>
+                <div class="cruceta-num num-corner-br">3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: NÚMEROS DEL DÍA (Bolas de Billar) -->
+    <section id="numeros-dia" class="daily-numbers-section">
+        <div class="container">
+            <h2 class="section-title">NÚMEROS DEL DÍA</h2>
+            
+            <!-- Contenedor de las 4 Bolas de Billar -->
+            <div class="billiard-grid">
+                
+                <!-- Bola 1 -->
+                <div class="billiard-ball">
+                    <div class="ball-shine"></div>
+                    <div class="ball-number-circle">
+                        <span>07</span>
+                    </div>
+                </div>
+
+                <!-- Bola 2 -->
+                <div class="billiard-ball">
+                    <div class="ball-shine"></div>
+                    <div class="ball-number-circle">
+                        <span>32</span>
+                    </div>
+                </div>
+
+                <!-- Bola 3 -->
+                <div class="billiard-ball">
+                    <div class="ball-shine"></div>
+                    <div class="ball-number-circle">
+                        <span>84</span>
+                    </div>
+                </div>
+
+                <!-- Bola 4 -->
+                <div class="billiard-ball">
+                    <div class="ball-shine"></div>
+                    <div class="ball-number-circle">
+                        <span>71</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!-- SECCIÓN: APORTES DISPONIBLES -->
+    <section id="aportes" class="vip-section">
+        <div class="container">
+            <h2 class="section-title">APORTES DISPONIBLES</h2>
+            <div class="daily-date-wrapper" style="text-align: center;">
+                <span class="daily-date-badge">📅 14 DE NOVIEMBRE, 2026</span>
+            </div>
+            <p class="vip-subtitle">Probabilidad más fuerte del día • Toca "Ver en $USD / ₡CRC" para cambiar la moneda</p>
+            
+            <div class="vip-grid">
+                
+                <!-- Tarjeta 1: Sorteo Tica -->
+                <div class="aporte-wrapper-compact">
+                    <input type="checkbox" id="flip-aporte-1" class="flip-toggle">
+                    <div class="vip-flip-inner">
+                        
+                        <!-- FRENTE: Colones (CRC) -->
+                        <div class="vip-card aporte-card-compact vip-front" style="background-image: linear-gradient(145deg, rgba(14, 12, 8, 0.88) 0%, rgba(5, 4, 2, 0.94) 100%), url('tu-foto-pais.jpg');">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-top-row">
+                                    <span class="plan-type">APORTE PARA</span>
+                                    <label for="flip-aporte-1" class="btn-flip">Ver en $USD ↻</label>
+                                </div>
+                                <div class="vip-badge-container">
+                                    <img src="nica.jpg" alt="Insignia Jogo" class="vip-card-badge">
+                                </div>
+                                <span class="duration aporte-title">SORTEO NICA</span>
+                                <div class="price-container">
+                                    <span class="new-price">₡2.000 CRC</span>
+                                </div>
+                                <a href="https://wa.me/50687038873?text=Hola,%20quiero%20comprar%20el%20aporte%20de%20Tica" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
+                        </div>
+
+                        <!-- REVERSO: Dólares (USD) -->
+                        <div class="vip-card aporte-card-compact vip-back" style="background-image: linear-gradient(145deg, rgba(14, 12, 8, 0.88) 0%, rgba(5, 4, 2, 0.94) 100%), url('tu-foto-pais.jpg');">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-top-row">
+                                    <span class="plan-type">APORTE PARA</span>
+                                    <label for="flip-aporte-1" class="btn-flip">Ver en ₡CRC ↻</label>
+                                </div>
+                                <div class="vip-badge-container">
+                                    <img src="nica.jpg" alt="Insignia Jogo" class="vip-card-badge">
+                                </div>
+                                <span class="duration aporte-title">SORTEO NICA</span>
+                                <div class="price-container">
+                                    <span class="new-price">$7 USD</span>
+                                </div>
+                                <a href="https://wa.me/50687038873?text=Hola,%20quiero%20comprar%20el%20aporte%20de%20Tica" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Sorteo Nica -->
+                <div class="aporte-wrapper-compact">
+                    <input type="checkbox" id="flip-aporte-2" class="flip-toggle">
+                    <div class="vip-flip-inner">
+                        
+                        <!-- FRENTE: Colones (CRC) -->
+                        <div class="vip-card aporte-card-compact vip-front" style="background-image: linear-gradient(145deg, rgba(14, 12, 8, 0.88) 0%, rgba(5, 4, 2, 0.94) 100%), url('tu-foto-pais-2.jpg');">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-top-row">
+                                    <span class="plan-type">APORTE PARA</span>
+                                    <label for="flip-aporte-2" class="btn-flip">Ver en $USD ↻</label>
+                                </div>
+                                <div class="vip-badge-container">
+                                    <img src="tica.png" alt="Insignia Jogo" class="vip-card-badge">
+                                </div>
+                                <span class="duration aporte-title">SORTEO TICA</span>
+                                <div class="price-container">
+                                    <span class="new-price">₡2.000 CRC</span>
+                                </div>
+                                <a href="https://wa.me/50687038873?text=Hola,%20quiero%20comprar%20el%20aporte%20de%20Nica" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
+                        </div>
+
+                        <!-- REVERSO: Dólares (USD) -->
+                        <div class="vip-card aporte-card-compact vip-back" style="background-image: linear-gradient(145deg, rgba(14, 12, 8, 0.88) 0%, rgba(5, 4, 2, 0.94) 100%), url('tu-foto-pais-2.jpg');">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-top-row">
+                                    <span class="plan-type">APORTE PARA</span>
+                                    <label for="flip-aporte-2" class="btn-flip">Ver en ₡CRC ↻</label>
+                                </div>
+                                <div class="vip-badge-container">
+                                    <img src="tica.png" alt="Insignia Jogo" class="vip-card-badge">
+                                </div>
+                                <span class="duration aporte-title">SORTEO TICA</span>
+                                <div class="price-container">
+                                    <span class="new-price">$7 USD</span>
+                                </div>
+                                <a href="https://wa.me/50687038873?text=Hola,%20quiero%20comprar%20el%20aporte%20de%20Nica" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- VIP Section (Membresías VIP) -->
     <section id="vip" class="vip-section">
         <div class="container">
             <h2 class="section-title">MEMBRESÍAS VIP</h2>
-            <p class="vip-subtitle">Toca el botón "Ver en $USD / ₡CRC" para cambiar la moneda</p>
+            <p class="vip-subtitle">Edición Especial • Toca "Ver en $USD / ₡CRC" para cambiar la moneda</p>
             
             <div class="vip-grid">
                 <!-- Plan 7 Días -->
@@ -62,11 +283,14 @@
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-7" class="btn-flip">Ver en $USD ↻</label>
                                 </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                                </div>
                                 <span class="duration">7 DÍAS</span>
                                 <div class="price-container">
                                     <span class="old-price">₡7.000 CRC</span>
                                     <span class="new-price">₡5.000 CRC</span>
-                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                    <span class="promo-badge bf-tag">BLACK FRIDAY</span>
                                 </div>
                                 <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                             </div>
@@ -79,11 +303,14 @@
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-7" class="btn-flip">Ver en ₡CRC ↻</label>
                                 </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                                </div>
                                 <span class="duration">7 DÍAS</span>
                                 <div class="price-container">
                                     <span class="old-price">$22 USD</span>
                                     <span class="new-price">$17 USD</span>
-                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                    <span class="promo-badge bf-tag">BLACK FRIDAY</span>
                                 </div>
                                 <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                             </div>
@@ -103,6 +330,9 @@
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-15" class="btn-flip">Ver en $USD ↻</label>
                                 </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                                </div>
                                 <span class="duration">15 DÍAS</span>
                                 <div class="price-container">
                                     <span class="new-price">₡12.500 CRC</span>
@@ -117,6 +347,9 @@
                                 <div class="card-top-row">
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-15" class="btn-flip">Ver en ₡CRC ↻</label>
+                                </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
                                 </div>
                                 <span class="duration">15 DÍAS</span>
                                 <div class="price-container">
@@ -140,11 +373,14 @@
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-31" class="btn-flip">Ver en $USD ↻</label>
                                 </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                                </div>
                                 <span class="duration">31 DÍAS</span>
                                 <div class="price-container">
                                     <span class="old-price">₡20.000 CRC</span>
                                     <span class="new-price">₡10.000 CRC</span>
-                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                    <span class="promo-badge bf-tag">BLACK FRIDAY</span>
                                 </div>
                                 <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                             </div>
@@ -157,11 +393,14 @@
                                     <span class="plan-type">MEMBRESÍA</span>
                                     <label for="flip-31" class="btn-flip">Ver en ₡CRC ↻</label>
                                 </div>
+                                <div class="vip-badge-container">
+                                    <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                                </div>
                                 <span class="duration">31 DÍAS</span>
                                 <div class="price-container">
                                     <span class="old-price">$50 USD</span>
                                     <span class="new-price">$27 USD</span>
-                                    <span class="promo-badge">¡PROMOCIÓN!</span>
+                                    <span class="promo-badge bf-tag">BLACK FRIDAY</span>
                                 </div>
                                 <a href="https://wa.me/50687038873" target="_blank" class="btn-purchase">¡Comprar con WhatsApp!</a>
                             </div>
@@ -177,28 +416,40 @@
         <div class="container">
             <h2 class="section-title text-gold">Nuestros Servicios</h2>
             <div class="grid">
+                <!-- Servicio 1 -->
                 <div class="card service-card">
                     <div class="card-glow service-glow"></div>
                     <div class="card-content">
-                        <div class="card-icon">⭐</div>
+                        <!-- Insignia VIP -->
+                        <div class="vip-badge-container service-badge-wrap">
+                            <img src="vip-badge.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                        </div>
                         <h3>MEMBRESÍAS VIP</h3>
-                        <p>Contamos con un grupo VIP en el cual los miembros obtienen las probabilidades para distintos sorteos de la región y nuestras asesorías.</p>
+                        <p>Grupo VIP en el cual los miembros obtienen las probabilidades para distintos sorteos de la región.</p>
                     </div>
                 </div>
+                <!-- Servicio 2 -->
                 <div class="card service-card">
                     <div class="card-glow service-glow"></div>
                     <div class="card-content">
-                        <div class="card-icon">🔰</div>
+                        <!-- Insignia VIP -->
+                        <div class="vip-badge-container service-badge-wrap">
+                            <img src="vip-badge2.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                        </div>
                         <h3>GRUPOS GRATUITOS</h3>
-                        <p>Contamos con comunidades gratuitas para que formes parte de nosotros y poder disfrutar de las dinámicas que realizamos.</p>
+                        <p>Contamos con comunidades gratuitas , además de realizar dinámicas para todo el público.</p>
                     </div>
                 </div>
+                <!-- Servicio 3 -->
                 <div class="card service-card">
                     <div class="card-glow service-glow"></div>
                     <div class="card-content">
-                        <div class="card-icon">🎯</div>
+                        <!-- Insignia VIP -->
+                        <div class="vip-badge-container service-badge-wrap">
+                            <img src="vip-badge3.jpg" alt="Insignia VIP Jogo" class="vip-card-badge">
+                        </div>
                         <h3>APORTES</h3>
-                        <p>Te vendemos la probabilidad más fuerte para tu sorteo de preferencia , además de incluir la lista del VIP para brindar las garantias en caso de que no salga el número (2 días máximo)</p>
+                        <p>Venta de la probabilidad más fuerte para tu sorteo de preferencia , además de la lista del VIP para brindar garantías en caso de que no salga el número (2 días máximo).</p>
                     </div>
                 </div>
             </div>
@@ -214,24 +465,23 @@
                 <p class="footer-phrase">Asesor y analista de loterías</p>
             </div>
             
-                <!-- Redes Sociales con imágenes locales -->
-                <div class="social-links">
-                    <a href="https://wa.me/50687038873" target="_blank" class="social-item" title="WhatsApp">
-                        <img src="whatsapp.png" alt="WhatsApp" class="social-logo">
-                    </a>
-                    <a href="https://www.instagram.com/numerojogo/" target="_blank" class="social-item" title="Instagram">
-                        <img src="instagram.png" alt="Instagram" class="social-logo">
-                    </a>
-                    <a href="https://www.facebook.com/NUMEROSJOGO/?rdid=jLVD00ZidaPzXvf7" target="_blank" class="social-item" title="Facebook">
-                        <img src="facebook.png" alt="Facebook" class="social-logo">
-                    </a>
-                    <a href="https://www.youtube.com/@NUMEROSJOGO" target="_blank" class="social-item" title="YouTube">
-                        <img src="youtube.png" alt="YouTube" class="social-logo">
-                    </a>
-                    <a href="https://www.tiktok.com/@numerosjogo" target="_blank" class="social-item" title="TikTok">
-                        <img src="tiktok.png" alt="TikTok" class="social-logo">
-                    </a>
-                </div>
+            <!-- Redes Sociales con imágenes locales -->
+            <div class="social-links">
+                <a href="https://wa.me/50687038873" target="_blank" class="social-item" title="WhatsApp">
+                    <img src="whatsapp.png" alt="WhatsApp" class="social-logo">
+                </a>
+                <a href="https://www.instagram.com/numerojogo/" target="_blank" class="social-item" title="Instagram">
+                    <img src="instagram.png" alt="Instagram" class="social-logo">
+                </a>
+                <a href="https://www.facebook.com/NUMEROSJOGO/?rdid=jLVD00ZidaPzXvf7" target="_blank" class="social-item" title="Facebook">
+                    <img src="facebook.png" alt="Facebook" class="social-logo">
+                </a>
+                <a href="https://www.youtube.com/@NUMEROSJOGO" target="_blank" class="social-item" title="YouTube">
+                    <img src="youtube.png" alt="YouTube" class="social-logo">
+                </a>
+                <a href="https://www.tiktok.com/@numerosjogo" target="_blank" class="social-item" title="TikTok">
+                    <img src="tiktok.png" alt="TikTok" class="social-logo">
+                </a>
             </div>
         </div>
     </footer>

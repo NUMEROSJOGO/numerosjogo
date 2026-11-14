@@ -1,64 +1,77 @@
-/* Estilos Generales y Variables */
+/* =========================================================
+   NUMEROS JOGO - ESTILOS VIBRANTES DE LUJO (OBSIDIANA & ORO BRILLANTE)
+   ========================================================= */
+
 :root {
-    --bg-dark: #030303;
-    --bg-card: rgba(15, 13, 10, 0.88);
-    --primary: #e5b84b;
+    --bg-obsidian: #040404;
+    --bg-card: #14110a;
+    --bg-card-hover: #1f1a10;
+    --primary-gold: #d4af37;
     --primary-bright: #ffd700;
-    --primary-glow: rgba(229, 184, 75, 0.45);
-    --accent: #cd7f32;
+    --gold-light: #fff8dc;
     --text-main: #ffffff;
-    --text-muted: #b5b0a4;
-    --text-gold: #f5c71a;
-    --transition: all 0.3s ease;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Montserrat', sans-serif;
+    --text-muted: #d0d0d0;
+    --whatsapp-green: #25d366;
+    --whatsapp-dark: #128c7e;
+    --accent-red: #ff3333;
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: var(--font-body);
+html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #040404;
     color: var(--text-main);
-    overflow-x: hidden;
-    line-height: 1.6;
-    position: relative;
-    /* Fondo base negro obsidiana con destellos dorados metálicos y haces de luz diagonales */
-    background-color: #030303;
-    background-image: 
-        radial-gradient(circle at 50% 0%, rgba(229, 184, 75, 0.16) 0%, transparent 50%),
-        radial-gradient(circle at 85% 35%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 15% 75%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-        repeating-linear-gradient(
-            -45deg,
-            rgba(229, 184, 75, 0.025) 0px,
-            rgba(229, 184, 75, 0.025) 1px,
-            transparent 1px,
-            transparent 45px
-        );
-    background-attachment: fixed;
 }
 
-/* Marca de agua sutil con tu logo njogo en el fondo */
+/* Fondo con degradado radial cálido, profundo y luminoso */
+body {
+    background: radial-gradient(circle at 50% 15%, #291f0e 0%, #141007 45%, #040404 90%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Resplandor cenital ambiental superior */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 500px;
+    background: radial-gradient(ellipse at top, rgba(229, 184, 75, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Fondo de marca de agua con el logo (con desvanecimiento suave en los bordes) */
 body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 65vw;
-    max-width: 650px;
-    height: 65vw;
-    max-height: 650px;
     transform: translate(-50%, -50%);
+    width: 75vw;
+    height: 75vw;
+    max-width: 700px;
+    max-height: 700px;
     background: url('logo.jpg') no-repeat center center;
     background-size: contain;
-    opacity: 0.045;
-    mix-blend-mode: lighten;
+    opacity: 0.10;
     pointer-events: none;
     z-index: 0;
+    filter: drop-shadow(0 0 35px rgba(229, 184, 75, 0.2));
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
 }
 
 .container {
@@ -72,10 +85,10 @@ body::before {
 
 /* Header/Navegación */
 .main-header {
-    background-color: rgba(5, 5, 5, 0.92);
+    background-color: rgba(5, 5, 5, 0.94);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(229, 184, 75, 0.25);
+    border-bottom: 1px solid rgba(229, 184, 75, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -88,6 +101,8 @@ body::before {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .logo-area {
@@ -131,14 +146,151 @@ body::before {
     text-shadow: 0 0 10px var(--primary-glow);
 }
 
+/* =========================================================
+   ANIMACIÓN TEMÁTICA: GATO NEGRO 2D CON MOVIMIENTO REALISTA
+   ========================================================= */
+.black-cat-track {
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.black-cat-walker {
+    position: absolute;
+    top: 0;
+    left: -70px;
+    width: 52px;
+    height: 32px;
+    animation: catPatrolReal 26s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.cat-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 3px 6px rgba(229, 184, 75, 0.4));
+    transform-origin: bottom center;
+    animation: catBodySway 0.9s ease-in-out infinite alternate;
+}
+
+.cat-leg-back-1 {
+    transform-origin: 19px 29px;
+    animation: legStride1 0.45s ease-in-out infinite alternate;
+}
+
+.cat-leg-back-2 {
+    transform-origin: 23px 29px;
+    animation: legStride2 0.45s ease-in-out infinite alternate;
+}
+
+.cat-leg-front-1 {
+    transform-origin: 35px 29px;
+    animation: legStride2 0.45s ease-in-out infinite alternate;
+}
+
+.cat-leg-front-2 {
+    transform-origin: 39px 29px;
+    animation: legStride1 0.45s ease-in-out infinite alternate;
+}
+
+.cat-tail {
+    transform-origin: 13px 27px;
+    animation: tailFluidWag 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes catPatrolReal {
+    0% { transform: translateX(-70px) scaleX(1); }
+    48% { transform: translateX(calc(100vw + 20px)) scaleX(1); }
+    50% { transform: translateX(calc(100vw + 20px)) scaleX(-1); }
+    98% { transform: translateX(-70px) scaleX(-1); }
+    100% { transform: translateX(-70px) scaleX(1); }
+}
+
+@keyframes catBodySway {
+    0% { transform: translateY(0px) rotate(-0.5deg); }
+    100% { transform: translateY(-2.2px) rotate(0.8deg); }
+}
+
+@keyframes legStride1 {
+    0% { transform: rotate(-16deg); }
+    100% { transform: rotate(18deg); }
+}
+
+@keyframes legStride2 {
+    0% { transform: rotate(18deg); }
+    100% { transform: rotate(-16deg); }
+}
+
+@keyframes tailFluidWag {
+    0% { transform: rotate(-12deg) scaleY(0.95); }
+    100% { transform: rotate(14deg) scaleY(1.05); }
+}
+
+/* =========================================================
+   CHISPAS DORADAS GLOBALES (FONDO DE TODA LA PÁGINA) - FIJAS
+   ========================================================= */
+.gold-embers {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gold-embers span {
+    position: absolute;
+    bottom: -20px;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, var(--gold-light) 0%, var(--primary-bright) 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    opacity: 0;
+    animation: floatEmbersGlobal 10s ease-in infinite;
+}
+
+.gold-embers span:nth-child(1)  { left: 5%;  animation-delay: 0s;   animation-duration: 9s; }
+.gold-embers span:nth-child(2)  { left: 15%; animation-delay: 2.5s; animation-duration: 12s; width: 3px; height: 3px; }
+.gold-embers span:nth-child(3)  { left: 25%; animation-delay: 1s;   animation-duration: 10s; }
+.gold-embers span:nth-child(4)  { left: 35%; animation-delay: 4.5s; animation-duration: 11s; width: 5px; height: 5px; }
+.gold-embers span:nth-child(5)  { left: 48%; animation-delay: 2s;   animation-duration: 8.5s; }
+.gold-embers span:nth-child(6)  { left: 60%; animation-delay: 3.5s; animation-duration: 13s; width: 3px; height: 3px; }
+.gold-embers span:nth-child(7)  { left: 72%; animation-delay: 0.8s; animation-duration: 9.5s; }
+.gold-embers span:nth-child(8)  { left: 82%; animation-delay: 5.2s; animation-duration: 11.5s; }
+.gold-embers span:nth-child(9)  { left: 90%; animation-delay: 1.5s; animation-duration: 10.5s; width: 5px; height: 5px; }
+.gold-embers span:nth-child(10) { left: 96%; animation-delay: 3.8s; animation-duration: 9s; }
+.gold-embers span:nth-child(11) { left: 40%; animation-delay: 6s;   animation-duration: 11s; }
+.gold-embers span:nth-child(12) { left: 55%; animation-delay: 1.2s; animation-duration: 9.8s; }
+
+@keyframes floatEmbersGlobal {
+    0% { 
+        transform: translateY(0) translateX(0) scale(0.7); 
+        opacity: 0; 
+    }
+    20% { 
+        opacity: 0.7; 
+    }
+    80% { 
+        opacity: 0.4; 
+    }
+    100% { 
+        transform: translateY(-105vh) translateX(25px) scale(1.3); 
+        opacity: 0; 
+    }
+}
+
 /* Hero Section */
 .hero {
     min-height: 58vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 10%;
-    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.12) 0%, transparent 70%);
+    padding: 4.5rem 10% 4rem;
+    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.13) 0%, transparent 70%);
     position: relative;
     text-align: center;
     z-index: 2;
@@ -150,18 +302,18 @@ body::before {
     position: relative;
 }
 
-.badge {
+.badge.bf-badge {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(229, 184, 75, 0.18), rgba(184, 134, 11, 0.08));
+    background: linear-gradient(135deg, #0d0d0d 0%, #1f190a 100%);
     color: var(--primary-bright);
-    padding: 0.5rem 1.3rem;
+    padding: 0.5rem 1.4rem;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 800;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(229, 184, 75, 0.4);
-    box-shadow: 0 0 20px rgba(229, 184, 75, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.55);
+    box-shadow: 0 0 22px rgba(229, 184, 75, 0.25);
 }
 
 .hero h1 {
@@ -181,7 +333,9 @@ body::before {
     margin-bottom: 0.8rem;
 }
 
-/* Sección VIP */
+/* =========================================================
+   SECCIÓN VIP Y TARJETAS MEJORADAS
+   ========================================================= */
 .vip-section {
     padding: 5rem 0 6rem;
     background: transparent;
@@ -214,7 +368,7 @@ body::before {
     gap: 3rem;
 }
 
-/* Sistema de Giro 3D con control estricto de capas táctiles */
+/* Sistema de Giro 3D */
 .vip-flip-wrapper {
     perspective: 1200px;
     width: 100%;
@@ -267,22 +421,27 @@ body::before {
     z-index: 2;
 }
 
-/* Estilo de la Tarjeta (Efecto cristal oscuro con borde dorado) */
 .vip-card {
     background: var(--bg-card);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(229, 184, 75, 0.25);
-    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 184, 75, 0.3);
+    border-radius: 24px;
     overflow: hidden;
     height: 100%;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.vip-card:hover {
+    border-color: rgba(229, 184, 75, 0.6);
 }
 
 .card-content {
-    padding: 2rem 2rem 2.2rem;
+    padding: 2rem 1.8rem 2.2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
     position: relative;
     z-index: 2;
@@ -294,25 +453,50 @@ body::before {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
     position: relative;
     z-index: 10;
 }
 
 .plan-type {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    letter-spacing: 1px;
-    font-weight: 600;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+}
+
+.vip-badge-container {
+    width: 68px;
+    height: 68px;
+    margin: 0.3rem 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vip-card-badge {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.8px solid var(--primary);
+    box-shadow: 0 0 18px rgba(229, 184, 75, 0.35);
+    filter: brightness(1.08) contrast(1.05);
+    transition: transform 0.3s ease;
+}
+
+.vip-card:hover .vip-card-badge {
+    transform: scale(1.05);
 }
 
 .btn-flip {
-    background: rgba(229, 184, 75, 0.18);
+    background: rgba(229, 184, 75, 0.15);
     color: var(--primary-bright);
-    border: 1px solid rgba(229, 184, 75, 0.45);
-    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(229, 184, 75, 0.4);
+    padding: 0.35rem 0.85rem;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.73rem;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
@@ -328,50 +512,55 @@ body::before {
 }
 
 .duration {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.45rem;
+    font-weight: 900;
     color: var(--text-main);
-    margin: 0.2rem 0;
+    margin: 0.1rem 0;
+    letter-spacing: 0.5px;
 }
 
 .price-container {
-    margin: 0.8rem 0 1.2rem 0;
+    margin: 0.4rem 0 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 95px;
+    min-height: 80px;
 }
 
 .old-price {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
     text-decoration: line-through;
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
 .new-price {
-    font-size: 2.1rem;
+    font-size: 1.95rem;
     font-weight: 900;
-    color: var(--text-main);
-    margin: 0.2rem 0;
+    margin: 0.15rem 0;
+    background: linear-gradient(135deg, #ffffff 10%, #ffe875 40%, #e5b84b 70%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(229, 184, 75, 0.45));
 }
 
-.promo-badge {
-    background: linear-gradient(135deg, #ff3333, #b30000);
-    color: white;
-    font-size: 0.7rem;
+.promo-badge.bf-tag {
+    background: linear-gradient(135deg, #111111 0%, #261e09 100%);
+    color: var(--primary-bright);
+    border: 1px solid rgba(229, 184, 75, 0.6);
+    font-size: 0.66rem;
     font-weight: 800;
-    padding: 0.25rem 0.7rem;
+    padding: 0.2rem 0.7rem;
     border-radius: 4px;
     margin-top: 0.3rem;
-    letter-spacing: 0.8px;
-    box-shadow: 0 4px 10px rgba(255, 51, 51, 0.3);
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .featured {
     border: 1.5px solid var(--primary);
-    box-shadow: 0 15px 40px rgba(229, 184, 75, 0.15);
+    box-shadow: 0 20px 45px rgba(229, 184, 75, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .featured .new-price {
@@ -384,62 +573,66 @@ body::before {
     border-color: rgba(205, 127, 50, 0.35);
 }
 
-.bronze .duration {
-    color: #e09548;
-}
-
 .card-glow {
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.12) 0%, transparent 60%);
+    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.1) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0.5;
 }
 
 .bronze .card-glow {
-    background: radial-gradient(circle at center, rgba(205, 127, 50, 0.14) 0%, transparent 60%);
+    background: radial-gradient(circle at center, rgba(205, 127, 50, 0.12) 0%, transparent 60%);
 }
 
 .featured-glow {
-    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.22) 0%, transparent 60%);
-    opacity: 0.7;
+    background: radial-gradient(circle at center, rgba(229, 184, 75, 0.2) 0%, transparent 60%);
+    opacity: 0.75;
 }
 
 .btn-purchase {
     position: relative;
     z-index: 10;
     display: inline-block;
-    background: rgba(229, 184, 75, 0.16);
-    color: var(--text-main);
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff;
     padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    font-weight: 700;
+    border-radius: 10px;
+    font-weight: 800;
     text-decoration: none;
     font-size: 0.82rem;
+    letter-spacing: 0.3px;
     transition: var(--transition);
-    border: 1px solid rgba(229, 184, 75, 0.4);
+    border: 1px solid rgba(37, 211, 102, 0.6);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    text-align: center;
 }
 
 .btn-purchase:hover,
 .btn-purchase:active {
-    background: linear-gradient(135deg, #fceabb 0%, #d4af37 100%);
-    color: #000;
-    box-shadow: 0 6px 20px rgba(229, 184, 75, 0.35);
+    background: linear-gradient(135deg, #2ee572 0%, #1da851 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.55);
 }
 
 .featured-btn {
-    background: linear-gradient(135deg, #fceabb 0%, #d4af37 100%);
-    color: #000;
-    border: none;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 .featured-btn:hover,
 .featured-btn:active {
-    background: linear-gradient(135deg, #ffffff 0%, #f5c71a 100%);
+    background: linear-gradient(135deg, #2ee572 0%, #1da851 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65);
 }
 
 /* Features Section (Servicios) */
@@ -482,11 +675,6 @@ body::before {
     position: relative;
     z-index: 2;
     text-align: center;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
 }
 
 .card h3 {
@@ -559,27 +747,6 @@ footer {
     margin-top: 0.2rem;
 }
 
-.footer-contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.phone-link {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.phone-link:hover {
-    color: var(--primary-bright);
-}
-
 .social-links {
     display: flex;
     gap: 1.2rem;
@@ -605,6 +772,211 @@ footer {
     filter: brightness(1.2) drop-shadow(0 0 8px var(--primary));
 }
 
+/* =========================================================
+   SECCIÓN: NÚMEROS DEL DÍA (BOLAS DE BILLAR 3D)
+   ========================================================= */
+.daily-numbers-section {
+    padding: 4.5rem 0 3rem;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.daily-date-wrapper {
+    margin: 0.5rem 0 3rem;
+}
+
+.daily-date-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(20, 17, 10, 0.95) 0%, rgba(38, 30, 12, 0.95) 100%);
+    color: var(--primary-bright);
+    border: 1px solid rgba(229, 184, 75, 0.5);
+    padding: 0.55rem 1.6rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 184, 75, 0.15);
+}
+
+.billiard-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.2rem;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.billiard-ball {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 32% 28%, #3a3a3a 0%, #121212 45%, #000000 100%);
+    border: 2px solid rgba(229, 184, 75, 0.45);
+    box-shadow: 
+        0 18px 30px rgba(0, 0, 0, 0.85),
+        0 0 22px rgba(229, 184, 75, 0.2),
+        inset -8px -10px 18px rgba(0, 0, 0, 0.9),
+        inset 4px 4px 10px rgba(255, 255, 255, 0.18);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.billiard-ball:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: var(--primary-bright);
+    box-shadow: 
+        0 24px 35px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 215, 0, 0.45),
+        inset -8px -10px 18px rgba(0, 0, 0, 0.9);
+}
+
+.ball-shine {
+    position: absolute;
+    top: 12%;
+    left: 18%;
+    width: 28px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, transparent 75%);
+    transform: rotate(-32deg);
+    pointer-events: none;
+}
+
+.ball-number-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #e8e4d9 85%, #cfc9ba 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.35),
+        0 0 0 2px rgba(229, 184, 75, 0.65);
+}
+
+.ball-number-circle span {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #080808;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+/* =========================================================
+   CRUCETA DEL DÍA
+   ========================================================= */
+.cruceta-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cruceta-x {
+    position: absolute;
+    inset: 20px;
+    pointer-events: none;
+    z-index: 1;
+    animation: crucetaBalancedMotion 3.2s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes crucetaBalancedMotion {
+    0%, 100% {
+        transform: scale(0.96) rotate(-5deg);
+    }
+    50% {
+        transform: scale(1.08) rotate(5deg);
+    }
+}
+
+.x-bar {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 14px;
+    background: linear-gradient(90deg, #d32f2f, #ff5252, #d32f2f);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 82, 82, 0.6);
+}
+
+.x-bar-1 {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.x-bar-2 {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.cruceta-num {
+    position: absolute;
+    font-weight: 900;
+    font-size: 2.3rem;
+    z-index: 3;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.cruceta-num:hover {
+    transform: scale(1.12);
+}
+
+.num-top {
+    top: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.num-left {
+    top: 50%;
+    left: 22%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.num-right {
+    top: 50%;
+    right: 22%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.num-bottom {
+    bottom: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.num-corner-tl, .num-corner-tr, .num-corner-bl, .num-corner-br {
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #fff5cc, #e5b84b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 6px rgba(229, 184, 75, 0.4));
+}
+
+.num-corner-tl { top: 8%; left: 12%; }
+.num-corner-tr { top: 8%; right: 12%; }
+.num-corner-bl { bottom: 8%; left: 12%; }
+.num-corner-br { bottom: 8%; right: 12%; }
+
 /* Responsive para móviles */
 @media (max-width: 968px) {
     .header-container {
@@ -627,10 +999,147 @@ footer {
     .footer-logo-area {
         align-items: center;
     }
-    .footer-contact-info {
-        align-items: center;
+    .billiard-grid {
+        gap: 1.2rem;
     }
-    .social-links {
-        justify-content: center;
+    .billiard-ball {
+        width: 92px;
+        height: 92px;
     }
+    .ball-number-circle {
+        width: 44px;
+        height: 44px;
+    }
+    .ball-number-circle span {
+        font-size: 1.3rem;
+    }
+    .cruceta-container {
+        width: 250px;
+        height: 250px;
+    }
+    .cruceta-num {
+        font-size: 1.9rem;
+    }
+    .num-corner-tl, .num-corner-tr, .num-corner-bl, .num-corner-br {
+        font-size: 1.8rem;
+    }
+    .vip-grid, .features .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   ESTILOS VIP MEJORADOS: DISTINCIÓN ENTRE DÍAS Y PRECIOS
+   ========================================================= */
+
+/* Color Platino/Blanco Elegante para los Días (Ej: 7 DÍAS) */
+.duration {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0.3rem 0;
+    letter-spacing: 1.2px;
+    background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+    text-transform: uppercase;
+}
+
+/* Estructura en cápsula de lujo para aislar y destacar los precios */
+.price-container {
+    margin: 0.6rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 85px;
+    background: linear-gradient(135deg, rgba(30, 24, 12, 0.75) 0%, rgba(12, 9, 3, 0.9) 100%);
+    border: 1px solid rgba(229, 184, 75, 0.4);
+    border-radius: 14px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    box-shadow: inset 0 1px 5px rgba(255, 215, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Precio anterior (tachado) sutil y discreto */
+.old-price {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+    opacity: 0.8;
+    margin-bottom: 0.1rem;
+}
+
+/* Oro Metálico Brillante Intenso para el Precio Nuevo */
+.new-price {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0.1rem 0;
+    background: linear-gradient(135deg, #fffbee 0%, #ffd700 35%, #e5b84b 70%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.65));
+    letter-spacing: -0.5px;
+}
+
+/* Etiqueta Black Friday dentro de la tarjeta */
+.promo-badge.bf-tag {
+    background: linear-gradient(135deg, #111111 0%, #261e09 100%);
+    color: var(--primary-bright);
+    border: 1px solid rgba(229, 184, 75, 0.6);
+    font-size: 0.66rem;
+    font-weight: 800;
+    padding: 0.2rem 0.7rem;
+    border-radius: 4px;
+    margin-top: 0.3rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+/* =========================================================
+   ESTILOS COMPACTOS PARA APORTES DISPONIBLES (MÁS PEQUEÑAS)
+   ========================================================= */
+.aporte-wrapper-compact {
+    perspective: 1200px;
+    height: 360px !important; /* Tarjeta más pequeña y compacta */
+    width: 100%;
+}
+
+.aporte-card-compact {
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1.5px solid rgba(229, 184, 75, 0.45);
+    border-radius: 18px;
+    padding: 1.5rem !important; /* Padding reducido para ahorrar espacio */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.aporte-card-compact:hover {
+    border-color: var(--primary-bright);
+    box-shadow: 0 18px 35px rgba(229, 184, 75, 0.25);
+}
+
+.aporte-card-compact .vip-badge-container {
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0.1rem 0 !important;
+}
+
+.aporte-card-compact .duration.aporte-title {
+    font-size: 1.2rem !important;
+    margin: 0.1rem 0 !important;
+}
+
+.aporte-card-compact .price-container {
+    min-height: 60px !important;
+    padding: 0.3rem 0.8rem !important;
+    margin: 0.2rem 0 0.8rem 0 !important;
+}
+
+.aporte-card-compact .new-price {
+    font-size: 1.6rem !important;
+}
+
+.aporte-card-compact .btn-purchase {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.78rem !important;
 }
