@@ -13,6 +13,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Checkbox de control oculto -->
+    <input type="checkbox" id="modal-toggle" class="modal-toggle" checked>
+
+    <!-- Ventana Emergente (Popup con cambio automático de anuncios) -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="modal-close-btn" aria-label="Cerrar">&times;</label>
+            
+            <!-- Contenedor del carrusel automático -->
+            <div class="modal-slider">
+                <!-- ANUNCIO 1: Cambia 'anuncio-1.jpg' por tu primera imagen -->
+                <img src="PROMO DEL MES NOVIEMBRE.png" alt="Anuncio 1" class="modal-img slide-1">
+                
+                <!-- ANUNCIO 2: Cambia 'anuncio-2.jpg' por tu segunda imagen -->
+                <img src="GRUPOS GRATIS.png" alt="Anuncio 2" class="modal-img slide-2">
+            </div>
+        </div>
+    </div>
+        <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/50687038873?text=Hola,%20vengo%20de%20la%20página%20y%20quiero%20más%20información" target="_blank" class="floating-whatsapp" aria-label="Escríbenos por WhatsApp">
+        <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-float-img">
+    </a>
     <!-- Chispas doradas flotantes globales en todo el fondo de la página -->
     <div class="gold-embers" aria-hidden="true">
         <span></span><span></span><span></span><span></span>
