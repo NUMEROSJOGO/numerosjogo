@@ -1331,3 +1331,30 @@ footer {
         transform: scale(1);
     }
 }
+/* =========================================================
+   BANDERAS DE PAÍSES EN LA SECCIÓN HERO
+   ========================================================= */
+
+.country-flags-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px; /* Espacio entre cada bandera */
+    margin-top: 1.5rem;
+}
+
+.small-flag {
+    width: 32px;  /* Ancho pequeño y uniforme */
+    height: 24px; /* Altura proporcional */
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(229, 184, 75, 0.4); /* Sutil borde dorado acorde a tu diseño */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.small-flag:hover {
+    transform: scale(1.15); /* Crece ligeramente al pasar el cursor */
+    border-color: var(--primary-bright);
+}
