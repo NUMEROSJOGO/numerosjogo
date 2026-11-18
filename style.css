@@ -1164,7 +1164,7 @@ footer {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(2px);
     display: none;
     align-items: center;
     justify-content: center;
